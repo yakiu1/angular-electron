@@ -2,48 +2,52 @@
 html, body {
   margin: 0;
   padding: 0;
-
   height: 100%;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* CAN (MUST) BE REMOVED ! Sample Global style */
-.container {
+
+// 主要顏色卡
+$main-color :#0c5275;
+$sub-color: #474725;
+
+$main-button-color: #4BA8D6;
+$sub-button-color:#aedcf2;
+
+$main-text-color: #a3bdc9;
+
+
+// 區塊樣式
+.bodyLayout{
+  background-color: $main-color;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background: url(./assets/background.jpg) no-repeat center fixed;
-  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
-  background-size: cover; /* version standardisée */
-
-  .title {
-    color: white;
-    margin: 0;
-    padding: 50px 20px;
-  }
-
-  a {
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #ed3330;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-
-    &:hover {
-      background: #fff;
-      color: #ed3330 !important;
-      letter-spacing: 1px;
-      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-      box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-      transition: all 0.4s ease 0s;
-    }
-  }
 }
+
+.banner{
+  display: flex;
+  justify-content: center;
+  flex-direction: columnf;
+}
+
+.gbtn-main{
+  background-color: $main-button-color;
+}
+
+.gbtn-sub{
+  background-color: $sub-button-color;
+}
+
+
+
+// 字體顏色
+a,p,h1,h2,h3,h4,h5,h6{
+  color: $main-text-color !important;
+}
+
+
+// 組合面板
+
+
+
+
+

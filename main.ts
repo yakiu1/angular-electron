@@ -13,16 +13,19 @@ function createWindow(): BrowserWindow {
 
   // Create the browser window.
   win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height,
+    x: size.width - 500,
+    y: size.height - 400,
+    width: 500,
+    height: 400,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve) ? true : false,
-      enableRemoteModule : true // true if you want to run 2e2 test or use remote module in renderer context (ie. Angular)
+      enableRemoteModule: true // true if you want to run 2e2 test or use remote module in renderer context (ie. Angular)
     },
   });
+
+  win.setAutoHideMenuBar(true);
+  win.setAlwaysOnTop(true);
 
   if (serve) {
 
