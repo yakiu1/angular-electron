@@ -1,53 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
 
 // 主要顏色卡
-$main-color :#0c5275;
-$sub-color: #474725;
-
-$main-button-color: #4BA8D6;
-$sub-button-color:#aedcf2;
-
-$main-text-color: #a3bdc9;
-
-
+$main-color :#4C934C;
+$sub-color: #53A548;
+$main-button-color: #91CB3E;
+$sub-button-color:#EEE82C;
+$main-text-color: #19381F;
 // 區塊樣式
-.bodyLayout{
-  background-color: $main-color;
-  height: 100%;
+.bodyLayout {
+    background-color: $main-color;
+    height: 100%;
 }
 
-.banner{
-  display: flex;
-  justify-content: center;
-  flex-direction: columnf;
+.banner {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: columnf;
 }
 
-.gbtn-main{
-  background-color: $main-button-color;
+.foot-menu-area {
+    width: 100%;
+    position: relative;
+    top: 15vh;
+    background-color: #19381f;
+    opacity: 0;
 }
 
-.gbtn-sub{
-  background-color: $sub-button-color;
+.gbtn-main {
+    background-color: $main-button-color;
 }
 
-
+.gbtn-sub {
+    background-color: $sub-button-color;
+}
 
 // 字體顏色
-a,p,h1,h2,h3,h4,h5,h6{
-  color: $main-text-color !important;
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $main-text-color !important;
 }
 
-
 // 組合面板
-
-
-
-
-

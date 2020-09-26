@@ -12,4 +12,7 @@ export class PlayListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addLinsters(): void {
+
+  }
 }
