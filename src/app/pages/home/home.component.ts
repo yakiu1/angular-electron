@@ -1,6 +1,6 @@
-import { YtPlayerService } from './../../shared/common/yt-player.service';
 import { AfterContentInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { YtPlayerService } from 'app/shared/common/yt-player.service';
 import { BehaviorSubject, fromEvent, Subscription } from 'rxjs';
 
 @Component({
