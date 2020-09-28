@@ -21,6 +21,8 @@ import { DetailModule } from './detail/detail.module';
 import { AppComponent } from './app.component';
 import { PlayListComponent } from './play-list/play-list.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { OverviewComponent } from './overview/overview.component';
+import { FriendComponent } from './friend/friend.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -28,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [AppComponent, PlayListComponent, GonHoverableDropdownComponent],
+  declarations: [AppComponent, PlayListComponent, GonHoverableDropdownComponent, OverviewComponent, FriendComponent],
   imports: [
     BrowserModule,
     FormsModule,
