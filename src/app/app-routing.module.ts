@@ -4,8 +4,10 @@ import { PageNotFoundComponent } from './shared/components';
 
 import { HomeRoutingModule } from './home/home-routing.module';
 import { DetailRoutingModule } from './detail/detail-routing.module';
+import { PlayListComponent } from './play-list/play-list.component';
 
 const routes: Routes = [
+  { path: 'playlist', component: PlayListComponent },
   {
     path: '',
     redirectTo: 'home',

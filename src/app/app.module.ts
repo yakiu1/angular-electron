@@ -1,3 +1,5 @@
+import { PlayListModule } from './play-list/play-list.module';
+import { OverviewModule } from './overview/overview.module';
 import { GonHoverableDropdownComponent } from './shared/components/gon-hoverable-dropdown/gon-hoverable-dropdown.component';
 import 'reflect-metadata';
 import '../polyfills';
@@ -16,13 +18,11 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { HomeModule } from './home/home.module';
+import { FriendModule } from './friend/friend.module';
 import { DetailModule } from './detail/detail.module';
 
 import { AppComponent } from './app.component';
-import { PlayListComponent } from './play-list/play-list.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import { OverviewComponent } from './overview/overview.component';
-import { FriendComponent } from './friend/friend.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -30,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [AppComponent, PlayListComponent, GonHoverableDropdownComponent, OverviewComponent, FriendComponent],
+  declarations: [AppComponent, GonHoverableDropdownComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -38,6 +38,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     CoreModule,
     SharedModule,
     HomeModule,
+    FriendModule,
+    OverviewModule,
+    PlayListModule,
     DetailModule,
     AppRoutingModule,
     TranslateModule.forRoot({
