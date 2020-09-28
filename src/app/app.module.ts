@@ -1,3 +1,4 @@
+import { GonHoverableDropdownComponent } from './shared/components/gon-hoverable-dropdown/gon-hoverable-dropdown.component';
 import 'reflect-metadata';
 import '../polyfills';
 
@@ -27,7 +28,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
 }
 
 @NgModule({
-  declarations: [AppComponent, PlayListComponent],
+  declarations: [AppComponent, PlayListComponent, GonHoverableDropdownComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -49,4 +50,4 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -3,18 +3,18 @@
 html,
 body {
     margin: 0;
-    padding: 0;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
 }
 
 // 主要顏色卡
-$main-color :#4C934C;
-$sub-color: #53A548;
-$main-button-color: #91CB3E;
-$sub-button-color:#EEE82C;
-$main-text-color: #19381F;
+$main-color :#1A535C;
+$sub-color: #4ECDC4;
+$main-button-color: #FF6B6B;
+$sub-button-color:#FFE66D;
+$main-text-color: #F7FFF7;
+$darken-main-color: darken($main-color, 10%);
 // 區塊樣式
 .bodyLayout {
     background-color: $main-color;
@@ -29,10 +29,11 @@ $main-text-color: #19381F;
 }
 
 .foot-menu-area {
-    width: 100%;
+    padding: 8px;
     position: relative;
     top: 15vh;
-    background-color: #19381f;
+    height: 18vh;
+    background-color: #4ECDC4;
     opacity: 0;
 }
 
@@ -57,3 +58,29 @@ h6 {
 }
 
 // 組合面板
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    position: absolute;
+    background-color: $darken-main-color;
+    color: $main-text-color;
+    width: 0px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 0px;
+    border-radius: 10px;
+    z-index: 1;
+    opacity: 0;
+}
+
+.dropdown:hover .dropdown-content {
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    width: 150px;
+    opacity: 0.9;
+}

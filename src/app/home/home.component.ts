@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
   @ViewChild('footMenu', { static: true }) footMenu: ElementRef;
 
 
+  test = [1,1,1];
   _isReadySubscription = new Subscription();
   _eventSubscriptions = new Subscription();
   $isReadyVideo = new BehaviorSubject<boolean>(false);
@@ -37,23 +38,21 @@ export class HomeComponent implements OnInit, AfterContentInit {
 
   addListeners(): void {
     const _footMenuHTML = (this.footMenu.nativeElement as HTMLElement);
+    const _footoptionArea = _footMenuHTML.querySelector('.foot-menu-area');
 
     this._eventSubscriptions.add(fromEvent(_footMenuHTML, 'mouseenter').subscribe(() => {
-      _footMenuHTML.querySelector('.foot-menu-area').classList.remove('fadeout');
-      _footMenuHTML.querySelector('.foot-menu-area').classList.add('fadein');
+      _footoptionArea.classList.remove('fadeout');
+      _footoptionArea.classList.add('fadein');
     }));
 
     this._eventSubscriptions.add(fromEvent(_footMenuHTML, 'mouseleave').subscribe(() => {
-      _footMenuHTML.querySelector('.foot-menu-area').classList.remove('fadein');
-      _footMenuHTML.querySelector('.foot-menu-area').classList.add('fadeout');
+      _footoptionArea.classList.remove('fadein');
+      _footoptionArea.classList.add('fadeout');
     }));
 
     this._isReadySubscription.add(this.$isReadyVideo.subscribe(isReady => {
       if (isReady) {
-        console.log('API Ready!');
         this.player = this.ytPlayerService.startVideo(this.videoId);
-        // DoSometingWhenReady
-        // this.addListeners();
       }
     }));
 
@@ -62,8 +61,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
   ngAfterContentInit(): void {
     this.addListeners();
     this.loadYoutubeAPI();
-    // this.player.playVideo();
-    console.log('XD');
 
   }
 
