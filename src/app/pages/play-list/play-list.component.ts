@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayListComponent implements OnInit {
 
+  // 1葉幾筆
+  list = [1, 1, 1, 1, 1, 1];
   constructor() { }
 
   ngOnInit(): void {
+
   }
+
 
   addLinsters(): void {
 

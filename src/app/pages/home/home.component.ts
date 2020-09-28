@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, AfterContentInit {
   @ViewChild('footMenu', { static: true }) footMenu: ElementRef;
 
 
-  test = [1,1,1];
+  test = [1, 1, 1];
   _isReadySubscription = new Subscription();
   _eventSubscriptions = new Subscription();
   $isReadyVideo = new BehaviorSubject<boolean>(false);
@@ -28,10 +28,14 @@ export class HomeComponent implements OnInit, AfterContentInit {
   loadYoutubeAPI(): void {
     const tag = document.createElement('script');
 
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    window['onYouTubeIframeAPIReady'] = () => {
+    if (document.getElementsByTagName('script')[1].src !== 'https://www.youtube.com/iframe_api') {
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      window['onYouTubeIframeAPIReady'] = () => {
+        this.$isReadyVideo.next(true);
+      }
+    } else {
       this.$isReadyVideo.next(true);
     }
   }
