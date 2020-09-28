@@ -5,7 +5,7 @@ import { PlayListComponent } from './play-list.component';
 
 const routes: Routes = [
   {
-    path: 'overview',
+    path: 'playlist',
     component: PlayListComponent
   }
 ];

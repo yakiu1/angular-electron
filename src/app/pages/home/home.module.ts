@@ -5,7 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 
 import { HomeComponent } from './home.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import { GonButtonComponent } from 'app/shared/components';
+import { GonButtonComponent } from '../../shared/components';
 
 @NgModule({
   declarations: [HomeComponent, GonButtonComponent],

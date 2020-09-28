@@ -6,7 +6,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PageNotFoundComponent } from './components/';
 import { WebviewDirective } from './directives/';
 import { FormsModule } from '@angular/forms';
-import { GonHoverableDropdownComponent } from './components/gon-hoverable-dropdown/gon-hoverable-dropdown.component';
 
 @NgModule({
   declarations: [PageNotFoundComponent, WebviewDirective],

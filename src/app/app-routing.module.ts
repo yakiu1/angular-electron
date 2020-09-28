@@ -1,13 +1,13 @@
+import { PlayListRoutingModule } from './pages/play-list/play-list-routing.module';
+import { FriendRoutingModule } from './pages/friend/friend-routing.module';
+import { OverviewRoutingModule } from './pages/overview/overview-routing.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeRoutingModule } from './pages/home/home-routing.module';
 import { PageNotFoundComponent } from './shared/components';
 
-import { HomeRoutingModule } from './home/home-routing.module';
-import { DetailRoutingModule } from './detail/detail-routing.module';
-import { PlayListComponent } from './play-list/play-list.component';
 
 const routes: Routes = [
-  { path: 'playlist', component: PlayListComponent },
   {
     path: '',
     redirectTo: 'home',
@@ -23,7 +23,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     HomeRoutingModule,
-    DetailRoutingModule
+    OverviewRoutingModule,
+    FriendRoutingModule,
+    PlayListRoutingModule,
   ],
   exports: [RouterModule]
 })

@@ -1,5 +1,8 @@
-import { PlayListModule } from './play-list/play-list.module';
-import { OverviewModule } from './overview/overview.module';
+import { DetailModule } from './pages/detail/detail.module';
+import { FriendModule } from './pages/friend/friend.module';
+import { PlayListModule } from './pages/play-list/play-list.module';
+import { HomeModule } from './pages/home/home.module';
+import { OverviewModule } from './pages/overview/overview.module';
 import { GonHoverableDropdownComponent } from './shared/components/gon-hoverable-dropdown/gon-hoverable-dropdown.component';
 import 'reflect-metadata';
 import '../polyfills';
@@ -17,9 +20,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { HomeModule } from './home/home.module';
-import { FriendModule } from './friend/friend.module';
-import { DetailModule } from './detail/detail.module';
 
 import { AppComponent } from './app.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
@@ -37,10 +37,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HttpClientModule,
     CoreModule,
     SharedModule,
-    HomeModule,
-    FriendModule,
     OverviewModule,
+    HomeModule,
     PlayListModule,
+    FriendModule,
     DetailModule,
     AppRoutingModule,
     TranslateModule.forRoot({
