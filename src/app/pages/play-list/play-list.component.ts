@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { SongInfo } from './../../difs/song-info';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-play-list',
@@ -7,16 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayListComponent implements OnInit {
 
+
   // 1葉幾筆
-  list = [1, 1, 1, 1, 1, 1];
-  constructor() { }
+  $playList: Observable<SongInfo[]>;
+  _playList: SongInfo[];
+  constructor(
+  ) {
+
+
+  }
 
   ngOnInit(): void {
-
+    this.addLinsters();
   }
 
 
   addLinsters(): void {
+  }
+
+  doDeleteSong(songData: SongInfo): void {
+
+    const delIndex = this._playList.findIndex(song => song.songName === songData.songName);
+
+    this._playList.splice(delIndex, 1);
 
   }
 }

@@ -9,7 +9,7 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" routerLink="/playlist">Playlist</a>
-            <app-gon-hoverable-dropdown class="dropdown-content">play list</app-gon-hoverable-dropdown>
+            <app-gon-hoverable-dropdown [playList]="songLists" class="dropdown-content">play list</app-gon-hoverable-dropdown>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" routerLink="/friend">Friend</a>

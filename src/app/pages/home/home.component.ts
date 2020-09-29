@@ -1,3 +1,5 @@
+import { SongInfo } from './../../difs/song-info';
+import { Store } from '@ngrx/store';
 import { AfterContentInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { YtPlayerService } from 'app/shared/common/yt-player.service';
@@ -13,7 +15,6 @@ export class HomeComponent implements OnInit, AfterContentInit {
   @ViewChild('footMenu', { static: true }) footMenu: ElementRef;
 
 
-  test = [1, 1, 1];
   _isReadySubscription = new Subscription();
   _eventSubscriptions = new Subscription();
   $isReadyVideo = new BehaviorSubject<boolean>(false);
@@ -21,7 +22,10 @@ export class HomeComponent implements OnInit, AfterContentInit {
   reframed: boolean;
   player: YT.Player;
 
-  constructor(router: Router, private ytPlayerService: YtPlayerService) {
+  constructor(
+    router: Router,
+    private ytPlayerService: YtPlayerService,
+  ) {
 
   }
 
