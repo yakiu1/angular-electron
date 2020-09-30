@@ -1,7 +1,7 @@
 <p>Add Youtube Url</p>
 <input>
 <ul>
-    <li *ngFor="let item of _playList;let i=index">
-        <app-gon-list-item (delete)="doDeleteSong($event)" [songName]="item.songName"></app-gon-list-item>
+    <li *ngFor="let item of $playList|async;let i=index">
+        <app-gon-list-item (delete)="doDeleteSong(i)" [songName]="item"></app-gon-list-item>
     </li>
 </ul>

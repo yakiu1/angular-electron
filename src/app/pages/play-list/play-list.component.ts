@@ -1,8 +1,9 @@
+import { AppState } from './../../state/app.state';
 import { SongInfo } from './../../difs/song-info';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-
+import * as PlaylistActions from './../../state/actions/playlist.actions'
 @Component({
   selector: 'app-play-list',
   templateUrl: './play-list.component.html',
@@ -15,24 +16,15 @@ export class PlayListComponent implements OnInit {
   $playList: Observable<SongInfo[]>;
   _playList: SongInfo[];
   constructor(
+    private store: Store<AppState>
   ) {
-
-
+    this.$playList = store.select('playlist');
   }
 
   ngOnInit(): void {
-    this.addLinsters();
   }
 
-
-  addLinsters(): void {
-  }
-
-  doDeleteSong(songData: SongInfo): void {
-
-    const delIndex = this._playList.findIndex(song => song.songName === songData.songName);
-
-    this._playList.splice(delIndex, 1);
-
+  doDeleteSong(index: number): void {
+    this.store.dispatch(new PlaylistActions.RemoveSong(index))
   }
 }

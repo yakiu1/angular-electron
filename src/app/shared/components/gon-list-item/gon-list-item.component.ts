@@ -10,18 +10,14 @@ export class GonListItemComponent implements OnInit {
 
   @Output() delete = new EventEmitter<SongInfo>();
 
-  @Input() songName: string;
+  @Input() songName: SongInfo;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  doDeleteSong(songName: string): void {
-    const songInfo: SongInfo = {
-      songName: songName,
-      songTag: '',
-    }
-    this.delete.emit(songInfo);
+  doDeleteSong(): void {
+    this.delete.emit(this.songName);
   }
 }

@@ -24,6 +24,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
+
+// NG Store
+import { StoreModule } from '@ngrx/store';
+import { playlistReducer } from './state/reducers/playlist.reducer'
+
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -51,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       }
     }),
     YouTubePlayerModule,
+    StoreModule.forRoot({ playlist: playlistReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

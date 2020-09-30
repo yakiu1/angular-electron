@@ -18,17 +18,19 @@ export class GonHoverableDropdownComponent implements OnInit, OnChanges, AfterVi
   }
 
   ngOnChanges(): void {
-    if(this.playList){
+    this.playListWithDisplayName = [];
+    if (this.playList) {
       this.playList.forEach(song => {
-        const songWithDisplayName = Object.assign(song, {
-          displayName: () => {
-            const displayName: string = song.songName.length > 20 ?
-              song.songName.substring(0, 24) + '...' :
-              song.songName;
-            return displayName;
-          }
-        })
-        this.playListWithDisplayName.push(songWithDisplayName);
+        const displayName = song.songName.length > 20 ?
+          song.songName.substring(0, 24) + '...' :
+          song.songName;
+        const _tempSong: SongInfo = {
+          songName: song.songName,
+          songTag: song.songTag,
+          displayName: displayName
+
+        }
+        this.playListWithDisplayName.push(_tempSong);
       })
     }
   }

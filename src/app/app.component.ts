@@ -1,22 +1,26 @@
+import { AppState } from './state/app.state';
 import { SongInfo } from './difs/song-info';
 import { AfterContentInit, AfterViewInit, Component } from '@angular/core';
 import { ElectronService } from './core/services';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConfig } from '../environments/environment';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import * as PlaylistActions from './state/actions/playlist.actions'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit,AfterContentInit {
+export class AppComponent implements AfterViewInit, AfterContentInit {
 
-  songLists;
-  $playlist: any;
+  $playlist: Observable<SongInfo[]>;
 
   constructor(
     private electronService: ElectronService,
     private translate: TranslateService,
+    private store: Store<AppState>
   ) {
     this.translate.setDefaultLang('en');
 
@@ -30,6 +34,8 @@ export class AppComponent implements AfterViewInit,AfterContentInit {
     } else {
       console.log('Run in browser');
     }
+
+    this.$playlist = store.select('playlist');
   }
   ngAfterContentInit(): void {
     this.setSongLists();
@@ -49,7 +55,9 @@ export class AppComponent implements AfterViewInit,AfterContentInit {
       { songName: 'Divinity Original Sin 2 OST 05 Welcome to Fort Joy', songTag: 'VIZp68FhbGE' },
     ];
 
-    // this.store.dispatch({ type: 'SET', payload: playlistMonkData });
-    this.songLists = playlistMonkData;
+    playlistMonkData.forEach(s => {
+      this.store.dispatch(new PlaylistActions.AddSong(s));
+
+    })
   }
 }
