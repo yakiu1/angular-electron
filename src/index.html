@@ -39,11 +39,12 @@
             </div>
         </div>
     </header>
+    <div id='electron-ver'></div>
     <app-root>Loading...</app-root>
 
 </body>
 
-<script>
+<script defer>
     const remote = require('electron').remote;
 
     const win = remote.getCurrentWindow();

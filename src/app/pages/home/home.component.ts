@@ -1,8 +1,6 @@
-import { SongInfo } from './../../difs/song-info';
-import { Store } from '@ngrx/store';
-import { AfterContentInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { YtPlayerService } from 'app/shared/common/yt-player.service';
+import { YtPlayerService } from 'app/core/services';
 import { BehaviorSubject, fromEvent, Subscription } from 'rxjs';
 
 @Component({
@@ -10,7 +8,7 @@ import { BehaviorSubject, fromEvent, Subscription } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterContentInit {
+export class HomeComponent implements OnInit, AfterContentInit, OnDestroy {
 
   @ViewChild('footMenu', { static: true }) footMenu: ElementRef;
 
@@ -27,6 +25,10 @@ export class HomeComponent implements OnInit, AfterContentInit {
     private ytPlayerService: YtPlayerService,
   ) {
 
+  }
+  ngOnDestroy(): void {
+    this._eventSubscriptions.unsubscribe();
+    this._eventSubscriptions.unsubscribe();
   }
 
   loadYoutubeAPI(): void {

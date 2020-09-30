@@ -7,12 +7,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { PageNotFoundComponent } from './components/';
 import { WebviewDirective } from './directives/';
 import { FormsModule } from '@angular/forms';
-import { YtPlayerService } from './common/yt-player.service';
 import { GonListItemComponent } from './components/gon-list-item/gon-list-item.component';
 
 @NgModule({
   declarations: [PageNotFoundComponent, WebviewDirective, GonListItemComponent, GonButtonComponent],
   imports: [CommonModule, TranslateModule, FormsModule],
-  exports: [TranslateModule, WebviewDirective, FormsModule, YtPlayerService, GonListItemComponent, GonButtonComponent]
+  exports: [TranslateModule, WebviewDirective, FormsModule, GonListItemComponent, GonButtonComponent]
 })
 export class SharedModule { }

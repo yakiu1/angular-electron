@@ -26,7 +26,7 @@ function createWindow(): BrowserWindow {
   });
 
   win.setAutoHideMenuBar(true);
-  win.setAlwaysOnTop(true);
+  //win.setAlwaysOnTop(true);
 
   if (serve) {
 
