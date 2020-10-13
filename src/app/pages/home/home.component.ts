@@ -1,6 +1,7 @@
 import { AfterContentInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { YtPlayerService } from 'app/core/services';
+import { HubConnection } from '@microsoft/signalr';
+import { ConnectorService, YtPlayerService } from 'app/core/services';
 import { BehaviorSubject, fromEvent, Subscription } from 'rxjs';
 
 @Component({
@@ -19,19 +20,29 @@ export class HomeComponent implements OnInit, AfterContentInit, OnDestroy {
   videoId = 'WBI_cOPTzPU'
   reframed: boolean;
   player: YT.Player;
+  connection: HubConnection;
 
   constructor(
     router: Router,
     private ytPlayerService: YtPlayerService,
+    private tubeConnect: ConnectorService
   ) {
 
   }
+
+  ngAfterContentInit(): void {
+    this.addListeners();
+    this.loadYoutubeAPI();
+    this.setConnection();
+  }
+
   ngOnDestroy(): void {
     this._eventSubscriptions.unsubscribe();
     this._eventSubscriptions.unsubscribe();
   }
 
   loadYoutubeAPI(): void {
+
     const tag = document.createElement('script');
 
     if (document.getElementsByTagName('script')[1].src !== 'https://www.youtube.com/iframe_api') {
@@ -68,15 +79,20 @@ export class HomeComponent implements OnInit, AfterContentInit, OnDestroy {
 
   }
 
-  ngAfterContentInit(): void {
-    this.addListeners();
-    this.loadYoutubeAPI();
-
+  setConnection(): void {
+    const connection = this.tubeConnect.connectToServe();
+    connection.start();
+    connection.on('ReceiveTubeLink', (tubeLink) => {
+      this.player.loadVideoById(tubeLink);
+    });
+    this.connection = connection;
   }
 
   ngOnInit(): void {
 
   }
 
-
+  shareVideo(): void {
+    this.connection.invoke('SendTubeLink', '00OagC5t_2Q');
+  }
 }

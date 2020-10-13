@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class GonButtonComponent implements OnInit {
 
   @Input() btnText;
-  @Output() clickEvent: EventEmitter<any>;
+  @Output() clickEvent = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit(): void {

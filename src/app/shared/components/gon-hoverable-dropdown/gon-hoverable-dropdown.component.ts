@@ -1,5 +1,5 @@
 import { SongInfo } from './../../../difs/song-info';
-import { AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gon-hoverable-dropdown',

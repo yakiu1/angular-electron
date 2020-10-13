@@ -98,6 +98,7 @@
   },
   "dependencies": {
     "@angular/youtube-player": "10.2.2",
+    "@microsoft/signalr": "3.1.8",
     "@ngrx/store": "10.0.0",
     "ngx-youtube-player": "9.1.0"
   }
